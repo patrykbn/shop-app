@@ -1,0 +1,92 @@
+@import '../../../styles/settings.scss';
+
+.cartCommentContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .productComment {
+        margin: 5px 0 2px 0;
+        font-size: $base-size * 0.8;
+        text-decoration: underline;
+    }
+    .commentContainer{
+        display: flex;
+        position: relative;
+        .productCommentTextArea {
+            z-index: 50;
+            font-size: $base-size;
+            min-width: $base-size * 20;
+            max-width: $base-size * 20;
+            min-height: $base-size * 2.5;
+            max-height: $base-size * 2.5;
+            text-align: left;
+            padding: $base-size * 0.35;
+            border: solid 1px $color-primary;
+            border-radius: $base-size * 0.5;
+            background-color: $background-text-color-light-75op;
+            &:focus {
+                border: solid 2px $color-primary;
+                outline: none;
+            }
+            &.error{
+                border: solid 1px $color-error;
+            }
+        }
+        .errorMessage{
+            z-index: 0;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            padding: $base-size * 0.5 $base-size * 1.5;
+            background-color: $color-error-back;
+            border: 1px solid $color-error;
+            border-radius: 50vh;
+            transition: 0.75s ease-in-out;
+            &.fade{
+                z-index: 100;
+                opacity: 1;
+                transition: 0.75s ease-in-out;
+            }
+        }
+        .charCount{
+            position: absolute;
+            top: $base-size * (-0.8);
+            right: 0;
+            font-size: $base-size * 0.75;
+            &.error{
+                color: $color-error;
+            }
+        }
+    }
+
+    .productCommentText {
+        font-size: $base-size;
+        width: $base-size * 20;
+        height: $base-size * 2.5;
+        text-align: left;
+        word-wrap: break-word;
+        padding: $base-size * 0.35;
+        border-radius: $base-size * 0.5;
+        background-color: $background-text-color-light-75op;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+    }
+    .productCommentText:hover ~ .productCommentTextHidden {
+        opacity: 1;
+        transition: 0.5s ease-in-out;
+    }
+    .productCommentTextHidden {
+        opacity: 0;
+        width: 100%;
+        font-size: $base-size * 0.7;
+        text-decoration: underline;
+        text-align: center;
+        transition: 0.5s ease-in-out;
+    }
+}

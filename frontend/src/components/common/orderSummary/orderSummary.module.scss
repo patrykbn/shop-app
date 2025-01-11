@@ -1,0 +1,116 @@
+@import '../../../styles/settings.scss';
+
+.orderSummaryContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: $base-size * 25;
+    .containerTitle{
+        width: 100%;
+        text-align: right;
+    }
+    .currentOrder{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        width: 100%;
+        min-height: $base-size * 50;
+        border-radius: $base-size * 1.5;
+        background-color: $background-color-light;
+        box-shadow: 5px 5px 5px $color-text-light;
+        //padding-right: $base-size;
+        .currentOrderList{
+            width: 85%;
+            direction: rtl;
+            margin-top: $base-size * 1;
+            .listElement{
+                margin-top: $base-size * 1;
+            }
+        }
+        .orderTotalContainer{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: $base-size * 5;
+            background-color: $background-text-color-light;
+            border-bottom-right-radius: $base-size * 1.5;
+            border-bottom-left-radius: $base-size * 1.5;
+            .orderTotalPrice{
+                display: flex;
+                width: 30%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .orderTotalPriceText{
+                    font-size: $base-size * 2;
+                }
+                .orderShippingText{
+                    font-size: $base-size * 1;
+                    text-decoration: underline;
+                }
+            }
+            .orderTotalItems{
+                display: flex;
+                width: 70%;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: end;
+                padding: $base-size * 0.5;
+                .orderTotalItemsText{
+                    font-size: $base-size * 1;
+                }
+                .orderTotalText{
+                    font-size: $base-size * 2;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .placeOrderButtonContainer{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            &.hidden{
+                display: none;
+            }
+            .placeOrderButton{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: $base-size* 3;
+                width: $base-size * 10;
+                cursor: pointer;
+                color: $color-text-white;
+                background-color: $color-success;
+                border-radius: $base-size * 0.5;
+                margin-bottom: $base-size * 2;
+                transition: 0.5s ease-in-out;
+                .orderIcon{
+                    font-size: 0px;
+                    transition: 0.5s ease-in-out;
+                }
+                .orderButtonText{
+                    font-size: $base-size * 1.5;
+                    transition: 0.5s ease-in-out;
+                }
+            }
+            .placeOrderButton:hover{
+                height: $base-size* 5;
+                width: 80%;
+                margin-bottom: $base-size * 1;
+                transition: 0.5s ease-in-out;
+                .orderIcon{
+                    font-size: $base-size * 3;
+                    transition: 0.5s ease-in-out;
+                }
+                .orderButtonText{
+                    font-size: $base-size * 1.0;
+                    transition: 0.5s ease-in-out;
+                }
+            }
+        }
+    }
+}

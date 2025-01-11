@@ -1,0 +1,67 @@
+@import '../../../styles/settings.scss';
+
+.productPhotos {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    .productImagesContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: 500px;
+        padding: 10px;
+        .productActiveImage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out;
+
+            &.fade {
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+            }
+            img {
+                width: auto;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 10px;
+                transition: opacity 0.5s ease-in-out;
+            }
+        }
+    }
+    .imageLine {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 7px 30px;
+        border-top: 1px solid $color-text-light;
+        border-bottom: 1px solid $color-text-light;
+        .thumbnail {
+            margin: 0 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 1.5s ease-in-out;
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+        .active {
+            background-color: $active-image-background;
+            padding: $active-image-padding;
+            border-radius: $active-image-border-radius;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}

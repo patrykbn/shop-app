@@ -1,0 +1,9 @@
+
+{
+  "scripts": {
+    "start": "concurrently \"npm start --prefix backend/backend-app\" \"npm start --prefix frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^6.2.1"
+  }
+}

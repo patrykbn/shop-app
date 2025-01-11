@@ -1,0 +1,108 @@
+@import '../../../styles/settings.scss';
+
+.orderFormContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: $background-color-light;
+    padding: 20px;
+    margin: $base-size * 2;
+    width: 50%;
+    border-radius: $radius;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .alertSuccess {
+        background-color: $alert-success-bg;
+        color: $alert-success-text;
+        text-align: center;
+        padding: $base-size;
+        margin: $base-size $base-size * 3;
+    }
+
+    .alertDanger {
+        background-color: $alert-danger-bg;
+        color: $alert-danger-text;
+        text-align: center;
+        padding: $base-size;
+        margin: $base-size $base-size * 4;
+    }
+}
+
+.OrderForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: $base-size*2;
+
+    .formGroup {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formLabel {
+        font-weight: bold;
+        color: $color-text;
+        .restriction{
+            padding: 0 $base-size;
+            font-size: $base-size * 0.85;
+        }
+    }
+
+    .formControl {
+        border: 1px solid $color-textfield-border;
+        border-radius: $radius;
+        padding: 10px;
+        font-size: $base-size;
+        transition: $transition;
+
+        &.formControlComment {
+            height: auto;
+            min-height: 80px;
+            resize: vertical;
+            max-height: 180px;
+        }
+
+        &:focus {
+            border-color: $color-primary;
+            box-shadow: 0 0 5px rgba($color-primary, 0.5);
+        }
+
+
+    }
+
+    .submitButton {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        transition: $transition;
+        cursor: pointer;
+        height: $base-size* 2;
+        margin: $base-size $base-size * 6;
+        font-family: $font-text;
+
+        &:hover {
+            background-color: $color-primary-light;
+            border-color: $color-primary-light;
+            border-radius: $base-size;
+            margin: $base-size $base-size * 1;
+            height: $base-size* 3;
+            font-size: $base-size * 1.5;
+        }
+    }
+}
+.homePageBtn{
+    background-color: $color-primary;
+        border-color: $color-primary;
+        transition: $transition;
+        cursor: pointer;
+        height: $base-size* 2;
+        margin: $base-size $base-size * 6;
+        font-family: $font-text;
+
+        &:hover {
+            background-color: $color-primary-light;
+            border-color: $color-primary-light;
+            border-radius: $base-size;
+            margin: $base-size $base-size * 1;
+            height: $base-size* 3;
+            font-size: $base-size * 1.5;
+        }
+}

@@ -1,0 +1,106 @@
+@import '../../../styles/settings.scss';
+
+.productPage{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 75vw;
+    justify-content: center;
+    align-items: center;
+    margin: 15% 0 10% 0;
+    .productContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+        padding: 20px;
+        background-color: $color-secondary;
+        border-radius: 10px;
+        .productPhotos {
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .productInfoContainer{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 100%;
+            margin: 40px 0 40px 40px;
+            .productInfo{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+                color: $color-text-light;
+                padding: 0 0 10% 0;
+                .productTitle{
+                    font-size: $base-size * 2;
+                    margin-bottom: 50px;
+                    .productName{
+                        font-size: $base-size * 3;
+                        margin-bottom: 10px;
+                        .productPrice{
+                            font-size: $base-size * 1.5;
+                            margin-bottom: 10px;
+                            margin-left: 15%;
+                        }
+                    }
+                    .productShortDescription{
+                        font-size: $base-size * 1.25;
+                        margin-bottom: 10px;
+                    }
+                }
+                .productDescription{
+                    display: flex;
+                    padding-right: 5%;
+                    .productDescriptionText{
+                        display: flex;
+                        text-align: right;
+                        font-size: $base-size * 1.25;
+                        margin-bottom: 10px;
+                        line-height: $base-size * 3;
+                    }
+                }
+                .productCartContainer{
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 5%;
+                }
+            }
+        }
+    }
+    .productOptions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10%;
+        border-top: 1px solid $color-text-light;
+        border-bottom: 1px solid $color-text-light;
+        padding: 10px 10px;
+        margin: 0 20px;
+        .option {
+            padding: 10px 20px;
+            border: 1px solid $color-primary;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: $color-secondary;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                background-color: $color-background;
+            }
+        }
+        .activeOption {
+            background-color: $color-primary;
+            color: $color-text-light;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                background-color: $color-primary;
+            }
+        }
+    }
+}

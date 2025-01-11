@@ -1,0 +1,122 @@
+@import '../../../styles/settings.scss';
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+$title-font: "Send Flowers", serif;
+
+.homePage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-color-main;
+    height: auto;
+    width: 100vw;
+    padding: 10px 0 25px 0;
+
+    .columnLeft {
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+        padding-right: 10px;
+        height: 100%;
+        width: 40%;
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            padding-top: 10px;
+
+            .categoryName {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding-bottom: 10px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: $base-size * 2.5;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: black;
+                }
+
+                .categoryNameText {
+                    font-size: $base-size * 2.5;
+                    font-family: $title-font;
+                    background-color: $background-color-main;
+                    position: relative;
+                    z-index: 1;
+                    padding: 10px;
+                    transition: 0.6s ease-in-out;
+                }
+            }
+        }
+        .category:hover {
+            .categoryName .categoryNameText {
+                letter-spacing: $base-size * 0.6;
+                transition: 0.6s ease-in-out;
+            }
+        }
+    }
+
+    .columnRight {
+        display: flex;
+        flex-direction: column;
+        padding-top: 380px;
+        padding-left: 10px;
+        height: 100%;
+        width: 40%;
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            padding-top: 10px;
+ 
+            .categoryName {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding-bottom: 10px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: $base-size * 2.5;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: black;
+                }
+
+                .categoryNameText {
+                    font-size: $base-size * 2.5;
+                    font-family: $title-font;
+                    background-color: $background-color-main;
+                    position: relative;
+                    z-index: 1;
+                    padding: 10px;
+                    transition: 0.6s ease-in-out;
+                }
+            }
+        }
+        .category:hover {
+            .categoryName .categoryNameText {
+                letter-spacing: $base-size * 0.6;
+                transition: 0.6s ease-in-out;
+            }
+        }
+    }
+}

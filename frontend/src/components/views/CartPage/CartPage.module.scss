@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+
+.cartPage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-color-main;
+    height: 100vh;
+    width: 100vw;
+    .cartProducts {
+        display: flex;
+        flex-direction: column;
+        .product {
+            display: flex;
+            flex-direction: row;
+            .productInCartDetails {
+                display: flex;
+                flex-direction: column;
+                margin: 5px;
+                padding: 10px;
+            }
+            .deleteContainer{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: $base-size * 1.5;
+                .trashIcon{
+                    font-size: $base-size * 2;
+                    padding: $base-size * 0.25;
+                    transition: 0.75s ease-in-out;
+                    cursor: pointer;
+                }
+                &:hover{
+                    color: $color-primary;
+                    transition: 0.75s ease-in-out;
+                }
+            }
+        }
+    }
+}

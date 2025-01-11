@@ -1,0 +1,91 @@
+@import '../../../styles/settings.scss';
+
+.elementContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .mainInformation{
+        display: flex;
+        width: 99%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $base-size * 0.2;
+        .mainText{
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: last baseline;
+            .productName{
+                text-align: right;
+                font-size: $base-size * 1.5;
+            }
+            .productOption{
+                padding-right: $base-size;
+                font-size: $base-size;
+            }
+        }
+        .mainPrice{
+            display: flex;
+            width: auto;
+            justify-content: flex-start;
+            align-items: last baseline;
+
+            .mainPriceText{
+                width: 100%;
+                text-align: left;
+                font-size: $base-size * 1.5;
+            }
+        }
+    }
+    .expandedContainer{
+        direction: ltr;
+        display: none;
+        flex-direction: column;
+        padding: $base-size * 0.2;
+        .detailTitle{
+            font-size: $base-size * 0.75;
+            text-decoration: underline;
+        }
+        .detailDescription{
+            font-size: $base-size * 0.95;
+        }
+        .detailComment{
+            font-size: $base-size * 0.95;
+            height: auto;
+            text-wrap: break-word;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            overflow: hidden;
+        }
+        &.show{
+            display: flex;
+        }
+    }
+    .expandButton{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: $base-size * 0.5;
+        background-color: $background-text-color-light;
+        border-bottom-right-radius: $base-size * 0.6;
+        border-bottom-left-radius: $base-size * 0.6;
+        cursor: pointer;
+        font-size: $base-size * 0.75;
+        color: $color-text-light;
+        transition: 0.4s ease-in-out;
+        &:hover{
+            color: $color-text;
+            font-size: $base-size * 1;
+            transition: 0.4s ease-in-out;
+        }
+    }
+    &.expanded{
+        border: 1px solid $background-text-color-light;
+        border-bottom-right-radius: $base-size * 0.6;
+        border-bottom-left-radius: $base-size * 0.6;
+    }
+}

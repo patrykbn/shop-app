@@ -1,0 +1,9 @@
+-- AlterTable
+ALTER TABLE `order` MODIFY `totalPrice` INTEGER NOT NULL DEFAULT 0;
+
+-- AlterTable
+ALTER TABLE `orderitem` ADD COLUMN `basePrice` INTEGER NOT NULL DEFAULT 0,
+    ADD COLUMN `comment` VARCHAR(191) NULL,
+    ADD COLUMN `productOption` VARCHAR(191) NOT NULL DEFAULT '',
+    ADD COLUMN `totalPrice` INTEGER NOT NULL DEFAULT 0,
+    MODIFY `quantity` INTEGER NOT NULL DEFAULT 0;

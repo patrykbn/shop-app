@@ -1,0 +1,71 @@
+@import '../../../styles/settings.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+
+$title-font: "Meow Script", serif;
+
+.header {
+    background-color: $color-primary;
+    color: $color-text;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 160px; // Increased height
+    width: 100%;
+    max-width: 1200px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 1s; // Added transition for smooth effect
+
+    &.scrolled {
+        background-color: darken($color-primary, 5%); // Darken the background color
+        height: 80px; // Reduce the height when scrolled
+        width: 70%;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        .titleContainer {
+            .logoContainer .logo {
+            height: 60px; // Adjusted height when scrolled
+            }
+        }
+
+        .titleContainer .titleSubText {
+            font-size: $base-size * 1.5; // Smaller font size when scrolled
+            margin-left: 50px;
+        }
+    }
+
+    .titleContainer {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        justify-content: flex-start;
+        transition: 0.75s;
+
+        .logoContainer {
+            position: relative;
+            margin: 0 50px;
+            .logo {
+                height: 120px; // Adjusted height
+                width: auto;
+                cursor: pointer;
+                transition: 0.75s;
+            }
+        }
+
+        .titleSubText {
+            font-family: $title-font;
+            font-weight: 300;
+            font-style: italic;
+            font-size: $base-size * 3; // Smaller font size;
+            color: rgba(255, 255, 255, 0.8); // Added transparency to text color
+            padding: 4px 7px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8); // Added transparency to border color
+            letter-spacing: 3px; // Added letter-spacing
+            transition: 1s;
+        }
+    }
+}

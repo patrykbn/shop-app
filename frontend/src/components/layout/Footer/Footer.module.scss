@@ -1,0 +1,14 @@
+@import '../../../styles/settings.scss';
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-primary;
+    color: $color-text;
+    min-height: 100px;
+    height: 120px;
+    width: 100vw; // changed from 100% to 100vw
+    z-index: 100;
+    box-shadow: 3px -3px 5px rgba(0, 0, 0, 0.1);
+}
