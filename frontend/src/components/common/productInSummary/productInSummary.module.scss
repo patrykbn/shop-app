@@ -1,56 +1,65 @@
 @import '../../../styles/settings.scss';
 
-.elementContainer{
+.elementContainer {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    .mainInformation{
+
+    .mainInformation {
         display: flex;
         width: 99%;
         flex-direction: row;
         justify-content: space-between;
         padding: $base-size * 0.2;
-        .mainText{
+
+        .mainText {
             display: flex;
             width: 100%;
             justify-content: flex-start;
             align-items: last baseline;
-            .productName{
+
+            .productName {
                 text-align: right;
                 font-size: $base-size * 1.5;
             }
-            .productOption{
+
+            .productOption {
                 padding-right: $base-size;
                 font-size: $base-size;
             }
         }
-        .mainPrice{
+
+        .mainPrice {
             display: flex;
             width: auto;
             justify-content: flex-start;
             align-items: last baseline;
 
-            .mainPriceText{
+            .mainPriceText {
                 width: 100%;
                 text-align: left;
                 font-size: $base-size * 1.5;
             }
         }
     }
-    .expandedContainer{
+
+    .expandedContainer {
         direction: ltr;
         display: none;
         flex-direction: column;
         padding: $base-size * 0.2;
-        .detailTitle{
+
+        .detailTitle {
             font-size: $base-size * 0.75;
             text-decoration: underline;
         }
-        .detailDescription{
+
+        .detailDescription {
             font-size: $base-size * 0.95;
         }
-        .detailComment{
+
+        .detailComment {
             font-size: $base-size * 0.95;
             height: auto;
             text-wrap: break-word;
@@ -60,11 +69,13 @@
             line-clamp: 2;
             overflow: hidden;
         }
-        &.show{
+
+        &.show {
             display: flex;
         }
     }
-    .expandButton{
+
+    .expandButton {
         display: flex;
         width: 100%;
         justify-content: center;
@@ -77,15 +88,48 @@
         font-size: $base-size * 0.75;
         color: $color-text-light;
         transition: 0.4s ease-in-out;
-        &:hover{
+
+        &:hover {
             color: $color-text;
             font-size: $base-size * 1;
             transition: 0.4s ease-in-out;
         }
     }
-    &.expanded{
+
+    &.expanded {
         border: 1px solid $background-text-color-light;
         border-bottom-right-radius: $base-size * 0.6;
         border-bottom-left-radius: $base-size * 0.6;
+    }
+
+    @media (max-width: 1050px) {
+        .expandButton {
+            font-size: $base-size * 1.4;
+
+            &:hover {
+                font-size: $base-size * 1.6;
+                transition: 0.4s ease-in-out;
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        .cartPage {
+            padding-top: 120px;
+        }
+
+        .mainInformation .mainText,
+        .mainInformation .mainText .productOption,
+        .mainInformation .mainPrice,
+        .expandedContainer .detailTitle,
+        .expandedContainer .detailDescription,
+        .expandedContainer .detailComment,
+        .expandButton {
+            font-size: calc($base-size * 0.9); // Adjust the percentage as needed
+        }
+
+        .expandButton:hover {
+            font-size: calc($base-size * 1.2); // Adjust the percentage as needed
+        }
     }
 }

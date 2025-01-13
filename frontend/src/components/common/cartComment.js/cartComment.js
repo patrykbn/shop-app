@@ -50,7 +50,7 @@ const CartComment = ({ productId, productComment }) => {
 
     return (
         <div className={styles.cartCommentContainer}>
-            <span className={styles.productComment}>comment for this product:</span><br />
+            <span className={styles.productComment}>comment for this product:</span>
                 {editingCommentId === productId ? (
                 <div className={styles.commentContainer}>
                     <textarea

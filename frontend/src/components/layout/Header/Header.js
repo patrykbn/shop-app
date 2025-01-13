@@ -9,7 +9,7 @@ const Header = () => {
     const [scrolled, setScrolled] = useState(false);
 
     const handleHomeClick = () => {
-        navigate('/');
+        navigate('/home');
     }
 
     useEffect(() => {
@@ -27,11 +27,12 @@ const Header = () => {
         <div className={classNames(styles.header, { [styles.scrolled]: scrolled })}>
             <div className={styles.titleContainer}>
                 <div className={styles.logoContainer}>
-                    <img src='/images/logo.png' alt='logo' className={styles.logo} onClick={handleHomeClick}/>
+                    <img src='/images/logo.jpg' alt='logo' className={styles.logo} onClick={handleHomeClick} loading="lazy" fetchPriority="high" />
+                    <span className={styles.mobileText} onClick={handleHomeClick}>Imagined & Made</span>
                 </div>
-                <h3 className={styles.titleSubText}>Buy a piece of my imagination...</h3>
+                <span className={styles.titleSubText}>Buy a piece of my imagination...</span>
             </div>
-            <CheckoutCart  />
+            <CheckoutCart />
         </div>
     );
 };

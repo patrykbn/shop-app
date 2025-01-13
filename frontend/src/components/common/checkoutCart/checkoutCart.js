@@ -2,21 +2,18 @@ import styles from './checkoutCart.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearCart } from '../../../redux/cartRedux';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const CheckoutCart = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
     const itemsInCart = useSelector(state => state.cart.itemsInCart);
 
     const handleCartClick = () => {
         navigate('/cart');
     };
-
-    const handleClearCart = () => {
-        dispatch(clearCart());
-    };
+    
 
     return (
         <div className={styles.cartContainer}>
@@ -25,7 +22,6 @@ const CheckoutCart = () => {
                 <FontAwesomeIcon icon={faCartShopping} className={styles.cartIcon} />
                 <span className={styles.cartText}>{itemsInCart > 10 ? '10+' : itemsInCart}</span>
             </div>
-            <button onClick={handleClearCart}>Clear Cart</button>
         </div>
     );
 };

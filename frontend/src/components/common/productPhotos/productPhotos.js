@@ -3,6 +3,8 @@ import styles from './productPhotos.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, useCallback } from 'react';
 import { loadProductImageRequest, getProductImagesByProductId } from '../../../redux/productImagesRedux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ProductPhotos = ({ productId }) => {
   const dispatch = useDispatch();
@@ -19,7 +21,6 @@ const ProductPhotos = ({ productId }) => {
   }, []);
 
   useEffect(() => {
-    console.log('useEffect triggered');
     dispatch(loadProductImageRequest());
   }, [dispatch]);
 
@@ -27,12 +28,17 @@ const ProductPhotos = ({ productId }) => {
     <div className={styles.productPhotos}>
       <div className={styles.productImagesContainer}>
         <div className={`${styles.productActiveImage} ${fade ? styles.fade : ''}`}>
-          <img 
+          <LazyLoadImage 
             key={activePhoto}
-            src={`../images/${productPhotos[activePhoto]?.imageUrl}` || '../images/testMug.png'}
+            sizes="(max-width: 300px) 100vw, 50vw"
+            src={`../images/${productPhotos[activePhoto]?.imageUrl}`}
             alt='productphoto'
-            className={styles.productPicture}>
-          </img>
+            className={styles.productPicture}
+            width="400"
+            height="400"
+            loading="lazy" // Lazy load non-critical images
+          >
+          </LazyLoadImage>
         </div>
       </div>
       <div className={styles.imageLine}>
@@ -42,7 +48,7 @@ const ProductPhotos = ({ productId }) => {
             className={`${styles.thumbnail} ${index === activePhoto ? styles.active : ''}`}
             onClick={() => handleThumbnailClick(index)}
           >
-            <img src={`../images/${photo.imageUrl}`} alt={`thumbnail-${index}`} />
+            <img src={`../images/${photo.imageUrl}`} alt={`thumbnail-${index}`} sizes="(max-width: 150px) 100vw, 50vw"/>
           </div>
         ))}
       </div>

@@ -22,10 +22,10 @@ $color-textfield-border: #ddd;
 $color-editor-border: #ccc;
 $color-editor-border-light: #ddd;
 
-$background-color-main: #707070;
+$background-color-main: rgb(219, 219, 219);
 $background-color-primary: #464646;
 $background-color-secondary: #333333;
-$background-color-light: #d8d8d8;
+$background-color-light: #bebebe;
 $background-text-color-main: rgb(236, 236, 236);
 $background-text-color-light: rgb(165, 165, 165);
 $background-text-color-light-25op: rgb(165, 165, 165, 0.25);
@@ -42,6 +42,17 @@ $font-text: 'Source Sans Pro', sans-serif;
 $radius: 5px;
 $base-size: 14px;
 $transition: all 0.5s;
+
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 900px;
+
+@media (max-width: $breakpoint-mobile) {
+  $base-size: 10px; // Reduced base size for mobile
+}
+
+@media (max-width: $breakpoint-tablet) {
+  $base-size: 13px;
+}
 
 $alert-success-bg: #d4edda;
 $alert-success-text: #155724;

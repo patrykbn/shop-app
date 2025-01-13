@@ -7,6 +7,7 @@ import { loadProductsRequest, getProductInCartById } from "../../../redux/produc
 const ProductInCart = ({ productId, productOption, productTotalPrice}) => {
   const dispatch = useDispatch();
   const product = useSelector(state => getProductInCartById(state, productId));
+  const [imageLoaded, setImageLoaded] = React.useState(false);
 
   useEffect(() => {
     dispatch(loadProductsRequest());
@@ -18,7 +19,15 @@ const ProductInCart = ({ productId, productOption, productTotalPrice}) => {
 
   return (
     <div className={styles.productInCart}>
-        <img src={`../images/${product.imgMain}`} alt='productphoto' />
+        {!imageLoaded && <div className={styles.loadingSpinner}></div>}
+        <img 
+            src={`../images/${product.imgMain}`} 
+            alt='productphoto' 
+            onLoad={() => setImageLoaded(true)} 
+            style={{ display: imageLoaded ? 'block' : 'none' }}
+            width={100}
+            height={100}
+        />
         <div className={styles.productDetails}>
             <div className={styles.productTopDetails}>
                 <span className={styles.productName}>

@@ -5,10 +5,69 @@
     justify-content: center;
     align-items: center;
     background-color: $color-primary;
-    color: $color-text;
+    color: $color-text-white;
     min-height: 100px;
     height: 120px;
-    width: 100vw; // changed from 100% to 100vw
+    width: 100vw;
     z-index: 100;
     box-shadow: 3px -3px 5px rgba(0, 0, 0, 0.1);
+    gap: 15vw;
+    padding: 0 20px;
+
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        padding: 20px 0;
+    }
+}
+
+.contactInfo {
+    font-size: $base-size;
+    display: flex;
+    flex-direction: column;
+    .name {
+        font-size: $base-size * 1.5;
+        padding-bottom: $base-size * 0.25;
+    }
+    .contactInfoContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: $base-size;
+        padding: $base-size * 0.25;
+        .icon {
+            font-size: $base-size * 1.4;
+        }
+        .text {
+            font-size: $base-size * 1.2;
+        }
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        align-items: center;
+        .contactInfoContainer {
+            justify-content: center;
+        }
+    }
+}
+
+.socialIcons {
+    display: flex;
+    gap: 25px;
+    font-size: $base-size * 2;
+    color: $color-text-bright;
+    transition: $transition;
+    .socialIcon {
+        cursor: pointer;
+    }
+    .socialIcon:hover {
+        color: $color-text;
+        transition: $transition;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        justify-content: center;
+    }
 }

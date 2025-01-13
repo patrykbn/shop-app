@@ -68,7 +68,9 @@ const OrderForm = () => {
             await dispatch(addOrderRequest(order));
             setMessage('Order placed successfully! We will contact you shortly.');
             setIsSubmitted(true);
-            dispatch(clearCart());
+            setTimeout(() =>{
+                dispatch(clearCart());
+            }, 10000)
         } catch (e) {
             setError(`Error placing order: ${e.message}`);
         }
@@ -126,14 +128,18 @@ const OrderForm = () => {
                             maxLength="400"
                         />
                     </Form.Group>
-                    <Button variant="primary" type="submit" className={styles.submitButton}>
-                        Submit Order
-                    </Button>
+                    <div className={styles.buttonContainer}>
+                        <Button variant="primary" type="submit" className={styles.submitButton}>
+                            Submit Order
+                        </Button>
+                    </div>
                 </Form>
             ) : (
+                <div className={styles.buttonContainerHome}>
                 <Button variant="primary" onClick={handleBackToHome} className={styles.homePageBtn}>
                     Back to Home Page
                 </Button>
+                </div>
             )}
         </div>
     );

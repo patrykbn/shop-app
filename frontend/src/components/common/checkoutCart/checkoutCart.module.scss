@@ -8,8 +8,9 @@ $title-font: "Meow Script", serif;
     display: flex;
     align-items: center;
     flex-grow: 1;
-    justify-content: flex-end;
-    min-width: 230px;
+    justify-content: center;
+    min-width: 80px;
+    margin-right: $base-size * 1.5;
     .cartButton {
         display: flex;
         justify-content: center;
@@ -52,5 +53,75 @@ $title-font: "Meow Script", serif;
         .cartText {
             font-size: $base-size * 1.85;
         }
+    }
+    @media (max-width: 1150px) {
+        .cartButton {
+            flex-direction: row;
+            align-items: center;
+            .cartHoverText {
+                font-size: $base-size * 1.0;
+                margin-right: $base-size * 0.5;
+                margin-top: $base-size * 0.5;
+            }
+            .cartIcon {
+                font-size: $base-size * 1.6;
+            }
+            .cartText {
+                font-size: $base-size * 1.2;
+            }
+            &:hover{
+                padding: 7px 10px;
+                transition: 0.8s ease-in-out;
+                .cartHoverText{
+                    font-size: $base-size * 1.0;
+                    transition: 0.8s ease-in-out;
+                }
+                .cartIcon{
+                    font-size: $base-size * 1.6;
+                }
+                .cartText {
+                    font-size: $base-size * 1.2;
+                }
+            }
+        }
+    }
+    
+    @media (max-width: $breakpoint-mobile) {
+        .cartButton {
+            flex-direction: column;
+            align-items: center;
+            .cartHoverText {
+                font-size: $base-size * 1.2;
+                margin-right: 0;
+                margin-top: $base-size * 0.5;
+            }
+            .cartIcon {
+                font-size: $base-size * 1.8;
+            }
+            .cartText {
+                display: none;
+            }
+            &:hover{
+                padding: 5px 5px;
+                transition: 0.8s ease-in-out;
+                .cartHoverText{
+                    font-size: $base-size * 1.2;
+                    transition: 0.8s ease-in-out;
+                }
+                .cartIcon{
+                    font-size: $base-size * 1.8;
+                }
+                .cartText {
+                    font-size: $base-size * 1.8;
+                }
+            }
+        }
+    }
+    
+}
+@media (max-width: $breakpoint-mobile) {
+    .cartContainer{
+        justify-content: center;
+        margin: 0;
     }
 }

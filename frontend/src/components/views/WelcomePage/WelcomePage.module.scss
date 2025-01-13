@@ -1,0 +1,58 @@
+@import '../../../styles/settings.scss';
+
+.welcomePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $background-color-main;
+    width: 90%;
+    max-width: 1200px;
+    padding-top: 120px;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    //background-color: $background-color-light;
+    border-radius: $radius;
+    //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 10%;
+    margin-bottom: 10px;
+}
+@media( max-width: $breakpoint-tablet){
+    .photo{
+        width: 250px;
+        height: 250px;
+    }
+}
+
+.info {
+    h1 {
+        font-size: $base-size * 2;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: $base-size;
+        color: $color-text-light;
+    }
+}
+
+.cta {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: $color-primary;
+    color: $color-text-white;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+        background-color: $color-primary-light;
+        font-size: $base-size * 2;
+    }
+}

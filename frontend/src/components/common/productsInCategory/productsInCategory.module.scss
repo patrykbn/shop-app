@@ -44,6 +44,11 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        @media (max-width: $breakpoint-mobile) {
+            .productPicture{
+                height: 300px;
+            }
+        }
 
         .productNav {
             position: absolute;

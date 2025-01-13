@@ -4,7 +4,7 @@ import styles from './MainLayout.module.scss';
 
 const MainLayout = ({ children }) => {
   return (
-    <div className={styles.Maincontainer}>
+    <div className={styles.wrapper}>
       <Header />
       <div className={styles.content}>
         {children}

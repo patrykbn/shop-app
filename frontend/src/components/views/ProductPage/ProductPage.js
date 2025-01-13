@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './ProductPage.module.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import { loadProductsRequest, getProductById } from '../../../redux/productsRedux';
-import ProductPhotos from '../../common/productPhotos/productPhotos';
 import AddToCart from '../../common/addToCart/addToCart';
+
+const ProductPhotos = lazy(() => import('../../common/productPhotos/productPhotos'));
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -23,20 +24,36 @@ const ProductPage = () => {
     }
   }, [product]);
 
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap';
+    link.rel = 'preload';
+    link.as = 'style';
+    document.head.appendChild(link);
+
+    const link2 = document.createElement('link');
+    link2.href = 'https://fonts.googleapis.com/css2?family=Meow+Script&display=swap';
+    link2.rel = 'preload';
+    link2.as = 'style';
+    document.head.appendChild(link2);
+  }, []);
+
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className={styles.productPage}>Loading...</div>;
   }
 
   return (
     <div className={styles.productPage}>
       <div className={styles.productContainer}>
-        <div className={styles.productPhotos}>
-          <ProductPhotos productId={id}/>
-        </div>
+        <Suspense fallback={<div>Loading photos...</div>}>
+          <div className={styles.productPhotos}>
+            <ProductPhotos productId={id}/>
+          </div>
+        </Suspense>
         <div className={styles.productInfoContainer}>
           <div className={styles.productInfo}>
             <div className={styles.productTitle}>

@@ -5,12 +5,13 @@ $title-font: "Send Flowers", serif;
 .homePage {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items:start;
     justify-content: center;
     background-color: $background-color-main;
-    height: auto;
+    height: 100%;
     width: 100vw;
-    padding: 10px 0 25px 0;
+    max-width: 1600px;
+    padding: 150px 0 25px 0;
 
     .columnLeft {
         display: flex;
@@ -69,7 +70,7 @@ $title-font: "Send Flowers", serif;
     .columnRight {
         display: flex;
         flex-direction: column;
-        padding-top: 380px;
+        padding-top: 220px;
         padding-left: 10px;
         height: 100%;
         width: 40%;
@@ -119,4 +120,24 @@ $title-font: "Send Flowers", serif;
             }
         }
     }
+}
+@media (max-width: $breakpoint-tablet) {
+    .homePage {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 120px;
+        .columnLeft{
+            padding-top: 0px;
+            padding-right: 0;
+            width: 80%;
+        }
+        .columnRight{
+            padding-top: 20px;
+            padding-left: 0;
+            width: 80%;
+        }
+    }
+}
+@media (max-width: $breakpoint-mobile) {
+
 }

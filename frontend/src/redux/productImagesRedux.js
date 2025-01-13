@@ -1,10 +1,15 @@
 import axios from 'axios';
 import { API_URL } from '../config';
 import initialState from './initialState';
+import { createSelector } from 'reselect';
 
 // selectors
 export const getProductImageById = ({ productImages }, imageId) => productImages.data.find(image => image.id === imageId);
-export const getProductImagesByProductId = ({ productImages }, productId) => productImages.data.filter(image => image.productId === productId);
+export const getProductImagesByProductId = createSelector(
+  state => state.productImages.data,
+  (state, productId) => productId,
+  (productImages, productId) => productImages.filter(image => image.productId === productId)
+);
 
 // actions
 const reducerName = 'productImages';

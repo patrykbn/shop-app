@@ -5,5 +5,35 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 95%;
+    padding-top: 180px;
+    .noItemsToSubmit{
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        padding: $base-size $base-size * 2;
+        justify-content: center;
+        align-items: center;
+        gap: $base-size;
+        background-color: $background-color-light;
+        margin: $base-size * 2 $base-size;
+        border-radius: $base-size * 0.5;
+        .textOne{
+
+        }
+        .textTwo{
+            font-size: $base-size;
+            text-align: center;
+        }
+    }
+}
+@media (max-width: $breakpoint-tablet) {
+    .orderPageContainer {
+        padding-top: 125px;
+    }
+}
+@media (max-width: 750px) {
+    .orderPageContainer {
+        flex-direction: column;
+    }
 }

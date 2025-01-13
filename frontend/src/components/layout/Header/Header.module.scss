@@ -1,5 +1,4 @@
 @import '../../../styles/settings.scss';
-
 @import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
 
 $title-font: "Meow Script", serif;
@@ -26,15 +25,17 @@ $title-font: "Meow Script", serif;
         width: 70%;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
+        transition: 1s;
         .titleContainer {
             .logoContainer .logo {
-            height: 60px; // Adjusted height when scrolled
+                height: 60px; // Adjusted height when scrolled
+                width: 70px;
             }
         }
 
         .titleContainer .titleSubText {
             font-size: $base-size * 1.5; // Smaller font size when scrolled
-            margin-left: 50px;
+            margin-left: 35px;
         }
     }
 
@@ -47,12 +48,17 @@ $title-font: "Meow Script", serif;
 
         .logoContainer {
             position: relative;
-            margin: 0 50px;
+            margin: 0 30px;
             .logo {
                 height: 120px; // Adjusted height
-                width: auto;
+                width: 150px;
                 cursor: pointer;
                 transition: 0.75s;
+                border-radius: $base-size;
+            }
+            .mobileText {
+                cursor: pointer;
+                display: none; // Hide mobile text by default
             }
         }
 
@@ -63,9 +69,69 @@ $title-font: "Meow Script", serif;
             font-size: $base-size * 3; // Smaller font size;
             color: rgba(255, 255, 255, 0.8); // Added transparency to text color
             padding: 4px 7px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.8); // Added transparency to border color
             letter-spacing: 3px; // Added letter-spacing
             transition: 1s;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .header {
+        height: 100px;
+        padding: 20px 20px 0 20px;
+        position: fixed; // Ensure header sticks to the top
+        top: 0;
+
+        &.scrolled {
+            height: 75px;
+            padding: 0 20px; // Ensure consistent padding
+            width: 90%;
+        }
+
+        .titleContainer {
+            .logoContainer {
+                margin: 0 10px;
+                .logo {
+                    height: 70px;
+                    width: 80px;
+                    padding-left: 10px;
+                }
+            }
+        }
+        .titleContainer .titleSubText {
+            font-size: $base-size * 1.5;
+            margin-left: 20px;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .header {
+        height: 110px;
+        width: 100%;
+        padding: 0 0px;
+        position: fixed;
+        top: 0;
+
+        .titleContainer {
+            .logoContainer {
+                margin: 0 auto; // Center the logo
+                .logo {
+                    display: none;
+                }
+                .mobileText {
+                    display: block; // Show mobile text on mobile devices
+                    font-family: $title-font;
+                    font-weight: 500;
+                    font-size: $base-size * 2.0;
+                    color: rgba(255, 255, 255, 0.8);
+                    padding: 4px 7px;
+                    letter-spacing: 2px;
+                }
+            }
+        }
+        .titleContainer .titleSubText {
+            display: none; // Hide the titleSubText on mobile devices
         }
     }
 }

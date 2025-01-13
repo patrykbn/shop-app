@@ -1,20 +1,25 @@
 import axios from 'axios';
 import { API_URL } from '../config';
 import initialState from './initialState';
+import { createSelector } from 'reselect';
 
 // selectors
 export const getAllProducts = ({ products }) => products.data;
-export const getProductByCategory = ({ products }, categoryId) => products.data.filter(product => product.categoryId === categoryId);
+export const getProductByCategory = createSelector(
+  state => state.products.data,
+  (state, categoryId) => categoryId,
+  (products, categoryId) => products.filter(product => product.categoryId === categoryId)
+);
 export const getProductById = ({ products }, productId) => products.data.find(product => product.id === productId);
-export const getProductInCartById = ({ products }, productId) => {
-    const product = products.data.find(product => product.id === productId);
-    return product ? {
-        name: product.name,
-        price: product.price,
-        shortDescription: product.shortDescription,
-        imgMain: product.imgMain,
-    } : null;
-};
+export const getProductInCartById = createSelector(
+  (state, productId) => state.products.data.find(product => product.id === productId),
+  product => product ? {
+    name: product.name,
+    price: product.price,
+    shortDescription: product.shortDescription,
+    imgMain: product.imgMain,
+  } : null
+);
 
 // actions
 const reducerName = 'products';

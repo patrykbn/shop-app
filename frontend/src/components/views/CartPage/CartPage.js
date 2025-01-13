@@ -29,9 +29,9 @@ const CartPage = () => {
             <div className={styles.productInCartDetails}>
               <QuantityWidget orderItemId={product.id} quantity={product.quantity} />
               <CartComment productId={product.id} productComment={product.comment} />
+              <div className={styles.deleteContainer}>
+                <FontAwesomeIcon icon={faTrashCan} className={styles.trashIcon} onClick={() => handleDeleteProductFromCart(product.id)}/>
             </div>
-            <div className={styles.deleteContainer}>
-              <FontAwesomeIcon icon={faTrashCan} className={styles.trashIcon} onClick={() => handleDeleteProductFromCart(product.id)}/>
             </div>
           </div>
         ))}

@@ -10,6 +10,7 @@ import OrderPage from './components/views/OrderPage/OrderPage';
 import NotFound from './components/views/NotFound/NotFound';
 
 import { loadCartFromLocalStorage, saveCartToLocalStorage } from './redux/cartRedux';
+import WelcomePage from './components/views/WelcomePage/WelcomePage';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,8 @@ const App = () => {
   return (
     <MainLayout>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/order" element={<OrderPage />} />

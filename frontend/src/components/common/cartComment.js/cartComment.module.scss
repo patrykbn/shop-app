@@ -32,6 +32,13 @@
                 border: solid 1px $color-error;
             }
         }
+        @media (max-width: 1050px) {
+            .productCommentTextArea {
+                min-width: 100%;
+                max-width: 100%;
+            }
+        }
+        
         .errorMessage{
             z-index: 0;
             opacity: 0;
@@ -88,5 +95,14 @@
         text-decoration: underline;
         text-align: center;
         transition: 0.5s ease-in-out;
+    }
+    @media (max-width: 1050px) {
+        .productCommentText {
+            min-width: 100%;
+            max-width: 100%;
+        }
+        .productCommentTextHidden{
+            opacity: 1;
+        }
     }
 }

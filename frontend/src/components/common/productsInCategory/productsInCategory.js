@@ -56,29 +56,40 @@ const ProductsInCategory = ({ categoryId }) => {
         setIsPaused(true);
         setTimeout(() => setIsPaused(false), 20000);
     };
-    //<span>{products[currentIndex].shortDescription}</span>
+
+    if (!products || products.length === 0) {
+        return (
+            <div>Loading...</div>
+        );
+    }
+
     return (
-        <div className={styles.productsInCategory}>
-            {products.length > 0 && (
-                <div className={`${styles.product} ${fade ? styles.fade : ''}`}>
-                    <span className={styles.productName}>{products[currentIndex].name}</span>
-                    <img 
-                        src={`/images/${products[currentIndex].imgMain}`}
-                        alt='productphoto'
-                        className={styles.productPicture}
-                        onClick={handleProductClick}>
-                    </img>
-                    <div className={styles.productNav}>
-                        <div className={styles.productNavButton} onClick={handlePreviousProduct}>
-                            <FontAwesomeIcon icon={faArrowLeft} className={styles.arrowIconLeft} />
-                        </div>
-                        <div className={styles.productNavButton} onClick={handleNextProduct}>
-                            <FontAwesomeIcon icon={faArrowRight} className={styles.arrowIconRight} />
+        <>
+            <div className={styles.productsInCategory}>
+                {products.length > 0 && (
+                    <div className={`${styles.product} ${fade ? styles.fade : ''}`}>
+                        <span className={styles.productName}>{products[currentIndex].name}</span>
+                        <img 
+                            src={`/images/${products[currentIndex].imgMain}`}
+                            sizes="(max-width: 600px) 100vw, 50vw"
+                            alt='productphoto'
+                            className={styles.productPicture}
+                            onClick={handleProductClick}
+                            loading="lazy"
+                        >
+                        </img>
+                        <div className={styles.productNav}>
+                            <div className={styles.productNavButton} onClick={handlePreviousProduct}>
+                                <FontAwesomeIcon icon={faArrowLeft} className={styles.arrowIconLeft} />
+                            </div>
+                            <div className={styles.productNavButton} onClick={handleNextProduct}>
+                                <FontAwesomeIcon icon={faArrowRight} className={styles.arrowIconRight} />
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     );
 };
 

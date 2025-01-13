@@ -23,7 +23,6 @@
         .priceText {
             font-size: $base-size * 1;
             margin: 0 10px;
-            padding-bottom: $base-size * 0.25;
         }
         .price {
             font-size: $base-size * 1.4;
@@ -34,8 +33,9 @@
             align-items: center;
             margin: 0 20px;
             height: $base-size * 2.4;
-            background-color: $background-text-color-light-75op;
+            background-color: $background-color-main;
             border-radius: $base-size * 1.25;
+            border: solid 1px $color-text-light;
             .quantityButton {
                 display: flex;
                 justify-content: center;
@@ -48,16 +48,22 @@
                 width: $base-size * 2.5;
                 height: 100%;
                 cursor: pointer;
-                transition: 0.5s ease-in-out;
                 &:hover {
                     background-color: $background-text-color-light;
-                    border: solid 1px $color-text-light;
-                    transition: 0.5s ease-in-out;
+                    border: solid 2px $color-text-light;
                 }
             }
             .quantity {
                 font-size: $base-size * 1.25;
                 margin: 0 10px;
+            }
+        }
+        @media (max-width: $breakpoint-mobile) {
+            .quantityContainer{
+                margin: 0 5px;
+                .quantity{
+                    margin: 0 5px;
+                }
             }
         }
         .cartButtonContainer {
@@ -82,16 +88,24 @@
                 }
                 .addPrice {
                     color: white;
-                    font-size: $base-size * 0.65;
+                    font-size: $base-size * 0.80;
                     opacity: 0;
                     position: absolute;
                     top: 35%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     transition: 0.3s ease-in-out;
+                    width: auto;
                     &.fade {
                         opacity: 1;
                         transition: 0.3s ease-in-out;
+                    }
+                }
+                @media (max-width: $breakpoint-mobile) {
+                    .addPrice{
+                        text-align: center;
+                        width: 35px;
+                        font-size: $base-size * 0.75;
                     }
                 }
             }
@@ -112,6 +126,23 @@
                 }
             }
         }
+        @media (max-width: 1150px) {
+            .cartButtonContainer{
+                flex-direction: column;
+                .cartText{
+                    font-size: $base-size * 1.0;
+                }
+            }
+        }
+    }
+    @media (max-width: $breakpoint-mobile) {
+        .top{
+            .priceText{
+                font-size: $base-size * 0.9;
+                margin: 0 5px;
+                padding-top: 5px;
+            }
+        }
     }
     .bottom {
         display: flex;
@@ -124,13 +155,14 @@
             padding: 6px 20px;
             border: none;
             background-color: $color-primary;
-            color: $color-text-light;
+            color: $color-text-white;
             cursor: pointer;
             border-radius: 5px;
             transition: 0.5s ease-in-out;
             &:hover {
                 background-color: $color-primary-light;
                 transition: 0.5s ease-in-out;
+                font-size: $base-size;
             }
             &.hidden {
                 display: none;
@@ -155,5 +187,11 @@
                 outline: none; // Optionally remove the default outline
             }
         }
+    }
+}
+@media (max-width: 1150px) {
+    .addToCartContainer{
+        border-top-right-radius: 50vh;
+        border-bottom-right-radius: 50vh;
     }
 }

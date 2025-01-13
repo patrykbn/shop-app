@@ -1,9 +1,4 @@
 const initialState = {
-    client: {
-        name: [],
-        email: [],
-        phoneNr: [],
-    },
     cart: {
         products: [],
         itemsInCart: 0, // changed from array to number
