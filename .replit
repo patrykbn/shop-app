@@ -1,8 +1,0 @@
-run = "npm start --prefix backend/backend-app & npm start --prefix frontend"
-env = [
-  "DB_HOST=your-hosted-mysql-host",
-  "DB_PORT=3306",
-  "DB_USERNAME=your-username",
-  "DB_PASSWORD=your-password",
-  "DB_NAME=your-database-name"
-]
