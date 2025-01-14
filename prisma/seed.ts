@@ -141,12 +141,20 @@ function getOrderItems() {
       orderId: 'bd8320f1-b2e9-4b6c-892c-c0b2f8a3d2f4',
       productId: 'c17297ae-914d-4fb5-981e-35c951be56fc',
       quantity: 1,
+      basePrice: 250,
+      totalPrice: 250,
+      productOption: '',
+      comment: null,
     },
     {
       id: 'bd8320f1-b2e9-4b6c-321a-e2b2f2c4e2g3',
       orderId: 'bd8320f1-b2e9-4b6c-892c-c0b2f8a3d2f4',
       productId: 'a9bd438e-7093-4a68-8f6b-120d3d8605eb',
       quantity: 1,
+      basePrice: 200,
+      totalPrice: 200,
+      productOption: '',
+      comment: null,
     },
   ];
 }
