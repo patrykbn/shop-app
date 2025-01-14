@@ -13,9 +13,14 @@ import { OrderItemsModule } from './order-items/order-items.module';
 import { ProductCategoryModule } from './product-category/product-category.module';
 import { ProductImageModule } from './product-image/product-image.module';
 import { ProductsModule } from './products/products.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '..', 'client', 'frontend', 'build'),
+    }),
     ProductsModule,
     OrderModule,
     ClientModule,

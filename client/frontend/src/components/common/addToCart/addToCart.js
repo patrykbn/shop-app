@@ -61,7 +61,6 @@ const AddToCart = ({ productPrice, productId, selectedOption }) => {
             comment: comment
         };
         
-        console.log(selectedOption);
         dispatch(addToCart(product));
         setShowCommentInput(false);
         setComment('');
